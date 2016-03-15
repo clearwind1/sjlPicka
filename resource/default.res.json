@@ -1,0 +1,32 @@
+{
+	"groups":[
+	{
+		"keys":"bgImage,egretIcon",
+		"name":"preload"
+	},
+	{
+		"keys":"loadingbar_png",
+		"name":"preloading"
+	}],
+	"resources":[
+	{
+		"name":"bgImage",
+		"type":"image",
+		"url":"assets/bg.jpg"
+	},
+	{
+		"name":"egretIcon",
+		"type":"image",
+		"url":"assets/egret_icon.png"
+	},
+	{
+		"name":"loadingbar_png",
+		"type":"image",
+		"url":"assets/loadingbar.png"
+	},
+	{
+		"name":"description",
+		"type":"json",
+		"url":"config/description.json"
+	}]
+}

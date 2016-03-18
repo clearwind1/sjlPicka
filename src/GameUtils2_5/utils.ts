@@ -187,7 +187,12 @@ module GameUtil
     }
 
     export function setscreenY(y:number):number{
-        return GameConfig._i().getSH() - (GameUtil.GameConfig.DesignHeight-y);
+        if(y >= GameUtil.GameConfig.DesignHeight/2){
+            return GameConfig._i().getSH() - (GameUtil.GameConfig.DesignHeight-y);
+        }else
+        {
+            return y;
+        }
     }
 
 }

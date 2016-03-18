@@ -26,6 +26,12 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
+var GameState;
+(function (GameState) {
+    GameState[GameState["gaming"] = 0] = "gaming";
+    GameState[GameState["gamepause"] = 1] = "gamepause";
+    GameState[GameState["gameover"] = 2] = "gameover";
+})(GameState || (GameState = {}));
 var Main = (function (_super) {
     __extends(Main, _super);
     function Main() {
@@ -43,8 +49,11 @@ var Main = (function (_super) {
      * Create a game scene
      */
     p.createGameScene = function () {
-        var sky = new GameUtil.MyBitmap(RES.getRes("bgImage"), this.stage.stageWidth / 2, this.stage.stageHeight / 2);
-        this.addChild(sky);
+        if (window.screen.availHeight < window.screen.availWidth) {
+            this.stage.scaleMode = egret.StageScaleMode.SHOW_ALL;
+        }
+        GameUtil.GameConfig._i().setStageHeight(this.stage.stageHeight);
+        GameUtil.GameScene.runscene(new StartGameScene());
     };
     return Main;
 })(egret.DisplayObjectContainer);

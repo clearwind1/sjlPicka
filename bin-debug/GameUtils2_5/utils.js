@@ -167,7 +167,12 @@ var GameUtil;
     }
     GameUtil.getQueryString = getQueryString;
     function setscreenY(y) {
-        return GameConfig._i().getSH() - (GameUtil.GameConfig.DesignHeight - y);
+        if (y >= GameUtil.GameConfig.DesignHeight / 2) {
+            return GameConfig._i().getSH() - (GameUtil.GameConfig.DesignHeight - y);
+        }
+        else {
+            return y;
+        }
     }
     GameUtil.setscreenY = setscreenY;
 })(GameUtil || (GameUtil = {}));

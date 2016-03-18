@@ -114,7 +114,7 @@ module GameUtil
 
                 this.loadedfun.apply(this.thisObj);
 
-                this.parent.removeChild(this);
+                //this.parent.removeChild(this);
             }
         }
 

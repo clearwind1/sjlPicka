@@ -8,9 +8,11 @@ var game_file_list = [
 	"libs/modules/game/game.native.js",
 	"libs/modules/tween/tween.js",
 	"libs/modules/res/res.js",
+	"bin-debug/GameUtils2_5/BassPanel.js",
+	"bin-debug/GameScene.js",
+	"bin-debug/GameUtils2_5/AdaptGamelayer.js",
 	"bin-debug/GameUtils2_5/MyBitmap.js",
 	"bin-debug/GameUtils2_5/Animation.js",
-	"bin-debug/GameUtils2_5/BassPanel.js",
 	"bin-debug/GameUtils2_5/GetImageByUrl.js",
 	"bin-debug/GameUtils2_5/GetResByany.js",
 	"bin-debug/GameUtils2_5/Http.js",
@@ -27,6 +29,10 @@ var game_file_list = [
 	"bin-debug/GameUtils2_5/utils.js",
 	"bin-debug/LoadingUI.js",
 	"bin-debug/Main.js",
+	"bin-debug/StartGameScene.js",
+	"bin-debug/TimePanel.js",
+	"bin-debug/Tiptool.js",
+	"bin-debug/Touchrect.js",
 	//----auto game_file_list end----
 ];
 
@@ -55,10 +61,10 @@ egret_native.egretStart = function () {
         //以下为自动修改，请勿修改
         //----auto option start----
 		entryClassName: "Main",
-		frameRate: 30,
-		scaleMode: "showAll",
-		contentWidth: 480,
-		contentHeight: 800,
+		frameRate: 60,
+		scaleMode: "fixedWidth",
+		contentWidth: 750,
+		contentHeight: 1334,
 		showPaintRect: false,
 		showFPS: false,
 		fpsStyles: "x:0,y:0,size:30,textColor:0x00c200,bgAlpha:0.9",

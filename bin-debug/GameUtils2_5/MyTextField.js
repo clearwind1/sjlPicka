@@ -13,6 +13,8 @@ var GameUtil;
         }
         var d = __define,c=MyTextField;p=c.prototype;
         p.init = function (x, y, size, anchorX, anchorY) {
+            this.textColor = 0x000000;
+            this.fontFamily = '楷体';
             this.$setX(x);
             this.$setY(y);
             this.$setSize(size);

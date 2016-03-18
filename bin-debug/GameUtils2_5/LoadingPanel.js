@@ -90,7 +90,6 @@ var GameUtil;
                 //if(GameUtil.GameConfig.bRunFPS)
                 //    egret.Profiler.run();
                 this.loadedfun.apply(this.thisObj);
-                this.parent.removeChild(this);
             }
         };
         /**

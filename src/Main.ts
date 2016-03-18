@@ -27,6 +27,11 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
+
+enum GameState {
+    gaming,gamepause,gameover
+}
+
 class Main extends egret.DisplayObjectContainer {
 
     /**
@@ -52,8 +57,12 @@ class Main extends egret.DisplayObjectContainer {
      */
     private createGameScene():void {
 
-        var sky:GameUtil.MyBitmap = new GameUtil.MyBitmap(RES.getRes("bgImage"),this.stage.stageWidth/2,this.stage.stageHeight/2);
-        this.addChild(sky);
+        if(window.screen.availHeight < window.screen.availWidth) {
+            this.stage.scaleMode = egret.StageScaleMode.SHOW_ALL;
+        }
+
+        GameUtil.GameConfig._i().setStageHeight(this.stage.stageHeight);
+        GameUtil.GameScene.runscene(new StartGameScene());
 
     }
 

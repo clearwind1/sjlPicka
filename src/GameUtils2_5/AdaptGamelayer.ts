@@ -21,18 +21,24 @@ class AdaptGamelayer extends GameUtil.BassPanel
         this.addChild(child);
     }
 
-    public adpat()
+    public adpat(bscalex:boolean = true)
     {
         var sc: number = 1;
        // console.log('adh=====',this.$getHeight(),'maxh======',this.maxheight);
         if(this.$getHeight()> this.maxheight)
         {
             sc = this.maxheight/this.$getHeight();
-            this.scaleX = this.scaleY = sc;
+            if(bscalex){
+                this.scaleX = this.scaleY = sc;
+            }
+            else
+            {
+                this.scaleY = sc;
+            }
 
         }
 
-        var disw: number = (this.mStageW-this.$getWidth()*sc)/2;
+        var disw: number = (this.mStageW-this.$getWidth()*this.scaleX)/2;
         this.x = disw;
     }
 

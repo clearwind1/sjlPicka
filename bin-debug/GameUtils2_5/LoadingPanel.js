@@ -37,6 +37,7 @@ var GameUtil;
             }
             else {
                 this.loadingbar = new GameUtil.MyBitmap(RES.getRes("loadingbar_png"), this.loadingbarOffX, this.mStageH / 2 + this.loadingbarOffY);
+                this.loadingbar.x = (this.mStageW - this.loadingbar.texture.textureWidth) / 2;
                 this.loadingbar.anchorOffsetX = 0;
                 var w = this.loadingbar.texture.textureWidth - 8;
                 var h = this.loadingbar.texture.textureHeight - 8;
@@ -59,7 +60,7 @@ var GameUtil;
             //Config to load process interface
             this.loadingView = new LoadingUI();
             this.loadingView.x = this.mStageW / 2;
-            this.loadingView.y = this.mStageH / 2 + this.loadingbar.height / 2 + 30;
+            this.loadingView.y = this.mStageH / 2 + this.loadingbarOffY + 30;
             this.addChild(this.loadingView);
             this.loadingView.anchorOffsetX = this.loadingView.width / 2;
             //初始化Resource资源加载库

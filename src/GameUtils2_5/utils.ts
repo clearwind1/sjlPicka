@@ -7,7 +7,7 @@ module GameUtil
     //游戏配置
     export class GameConfig
     {
-        public static IP:string = "springmeeting.sxd55.com";        //http连接地址
+        public static IP:string = "spring.gamexun.com";        //http连接地址
         public static bRunFPS:boolean = false;              //是否显示FPS
 
         //场景转换
@@ -20,6 +20,8 @@ module GameUtil
         public static DesignHeight:number = 1334;
 
         private stagetY: number = 0;
+
+        public bfirstplay: boolean;
 
         public constructor()
         {

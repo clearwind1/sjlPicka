@@ -21,7 +21,7 @@ var GameUtil;
         p.getSH = function () {
             return this.stagetY;
         };
-        GameConfig.IP = "springmeeting.sxd55.com"; //http连接地址
+        GameConfig.IP = "spring.gamexun.com"; //http连接地址
         GameConfig.bRunFPS = false; //是否显示FPS
         //场景转换
         GameConfig.NullAction = 0; //无动画

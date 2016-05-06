@@ -41,18 +41,20 @@ var Main = (function (_super) {
     var d = __define,c=Main;p=c.prototype;
     p.onAddToStage = function (event) {
         //设置加载进度界面
+        if (window.screen.availHeight < window.screen.availWidth) {
+            this.stage.scaleMode = egret.StageScaleMode.SHOW_ALL;
+        }
         GameUtil.GameScene.init(this.stage);
-        GameUtil.GameScene.runscene(new GameUtil.LoadingPanel(this.createGameScene, this, 0, 0, true));
+        GameUtil.GameScene.runscene(new GameUtil.LoadingPanel(this.createGameScene, this, 0, 0));
     };
     /**
      * 创建游戏场景
      * Create a game scene
      */
     p.createGameScene = function () {
-        if (window.screen.availHeight < window.screen.availWidth) {
-            this.stage.scaleMode = egret.StageScaleMode.SHOW_ALL;
-        }
+        GameUtil.Http.getinstance();
         GameUtil.GameConfig._i().setStageHeight(this.stage.stageHeight);
+        GameUtil.GameConfig._i().bfirstplay = true;
         GameUtil.GameScene.runscene(new StartGameScene());
     };
     return Main;

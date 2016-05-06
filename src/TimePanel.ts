@@ -7,6 +7,9 @@
 class TimePanel extends GameUtil.BassPanel
 {
 
+    private bchangey: boolean;
+    private bchanger: boolean;
+
     private timebar: GameUtil.MyBitmap;
     public intervaltag: number;
 
@@ -25,16 +28,23 @@ class TimePanel extends GameUtil.BassPanel
         timetext.setText('TIME:');
         this.addChild(timetext);
 
-        var timeproframe: GameUtil.MyBitmap = new GameUtil.MyBitmap(RES.getRes('timeproframe_png'),417,GameUtil.setscreenY(1302));
-        this.addChild(timeproframe);
-
-        this.timebar = new GameUtil.MyBitmap(RES.getRes('timepro_png'),129,GameUtil.setscreenY(1302));
+        this.timebar = new GameUtil.MyBitmap(RES.getRes('timepro_png'),127,GameUtil.setscreenY(1302));
         this.timebar.setanchorOff(0,0.5);
         this.addChild(this.timebar);
         //this.timebar.scale9Grid = new egret.Rectangle(15,7,270,10);
 
-        this.intervaltag = egret.setInterval(this.timerun,this,100);
+        var timeproframe: GameUtil.MyBitmap = new GameUtil.MyBitmap(RES.getRes('timeproframe_png'),417,GameUtil.setscreenY(1302));
+        this.addChild(timeproframe);
 
+        this.intervaltag = egret.setInterval(this.timerun,this,600);
+
+    }
+
+    public cutTimesc()
+    {
+        var sc: number = this.timebar.$getScaleX();
+        sc -= 0.01;
+        this.timebar.$setScaleX(sc);
     }
 
     private timerun()
@@ -45,14 +55,28 @@ class TimePanel extends GameUtil.BassPanel
             return;
         }
 
+        GameScene._i().costime += 600;
+
         var sc: number = this.timebar.$getScaleX();
-        sc -= 0.01;
+        sc -= 0.001;
         this.timebar.$setScaleX(sc);
 
         //console.log('sc======',sc);
 
+        if(!this.bchanger && sc <= 0.15)
+        {
+            this.bchanger = true;
+            this.timebar.setNewTexture(RES.getRes('redtimepro_png'))
+        }
+        if(sc <= 0.4 && !this.bchangey)
+        {
+            this.bchangey = true;
+            this.timebar.setNewTexture(RES.getRes('yelltimepro_png'));
+        }
+
         if(sc <= 0)
         {
+            this.timebar.$setScaleX(0);
             console.log('gameover');
             GameScene._i().gameover();
             egret.clearInterval(this.intervaltag);

@@ -13,14 +13,20 @@ var AdaptGamelayer = (function (_super) {
     p.putItme = function (child) {
         this.addChild(child);
     };
-    p.adpat = function () {
+    p.adpat = function (bscalex) {
+        if (bscalex === void 0) { bscalex = true; }
         var sc = 1;
         // console.log('adh=====',this.$getHeight(),'maxh======',this.maxheight);
         if (this.$getHeight() > this.maxheight) {
             sc = this.maxheight / this.$getHeight();
-            this.scaleX = this.scaleY = sc;
+            if (bscalex) {
+                this.scaleX = this.scaleY = sc;
+            }
+            else {
+                this.scaleY = sc;
+            }
         }
-        var disw = (this.mStageW - this.$getWidth() * sc) / 2;
+        var disw = (this.mStageW - this.$getWidth() * this.scaleX) / 2;
         this.x = disw;
     };
     AdaptGamelayer._i = function () {

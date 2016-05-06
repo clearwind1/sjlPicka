@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Egret</title>
+    <title>火眼金睛</title>
     <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="full-screen" content="true"/>
@@ -28,6 +28,7 @@
 	<script egret="lib" src="libs/modules/game/game.web.js" src-release="libs/modules/game/game.web.min.js"></script>
 	<script egret="lib" src="libs/modules/tween/tween.js" src-release="libs/modules/tween/tween.min.js"></script>
 	<script egret="lib" src="libs/modules/res/res.js" src-release="libs/modules/res/res.min.js"></script>
+	<script egret="lib" src="libs/modules/weixinapi/weixinapi.js" src-release="libs/modules/weixinapi/weixinapi.min.js"></script>
 	<!--modules_files_end-->
 
     <!--这个标签为不通过egret提供的第三方库的方式使用的 javascript 文件，请将这些文件放在libs下，但不要放在modules下面。-->
@@ -37,6 +38,7 @@
     <!--这个标签会被替换为项目中所有的 javascript 文件。删除 game_files 标签后，项目文件加载列表将不会变化，请谨慎操作！-->
     <!--game_files_start-->
 	<script egret="game" src="bin-debug/GameUtils2_5/BassPanel.js"></script>
+	<script egret="game" src="bin-debug/EnjoyModeScene.js"></script>
 	<script egret="game" src="bin-debug/GameScene.js"></script>
 	<script egret="game" src="bin-debug/GameUtils2_5/AdaptGamelayer.js"></script>
 	<script egret="game" src="bin-debug/GameUtils2_5/MyBitmap.js"></script>
@@ -52,6 +54,7 @@
 	<script egret="game" src="bin-debug/GameUtils2_5/ProgressBar.js"></script>
 	<script egret="game" src="bin-debug/GameUtils2_5/RadioButton.js"></script>
 	<script egret="game" src="bin-debug/GameUtils2_5/ScrollView.js"></script>
+	<script egret="game" src="bin-debug/GameUtils2_5/SharePage.js"></script>
 	<script egret="game" src="bin-debug/GameUtils2_5/TipsPanel.js"></script>
 	<script egret="game" src="bin-debug/GameUtils2_5/WaitServerPanel.js"></script>
 	<script egret="game" src="bin-debug/GameUtils2_5/utils.js"></script>
@@ -62,6 +65,8 @@
 	<script egret="game" src="bin-debug/Tiptool.js"></script>
 	<script egret="game" src="bin-debug/Touchrect.js"></script>
 	<!--game_files_end-->
+
+    <link rel='icon' href='resource/icon.png' type='image/x-icon'/>
 </head>
 <body>
 

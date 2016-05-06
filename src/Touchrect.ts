@@ -43,14 +43,10 @@ class Touchrect extends egret.Shape
         }
 
 
-        var circle: GameUtil.MyBitmap = new GameUtil.MyBitmap(RES.getRes('redcircle_png'),this.x,this.y);
-        AdaptGamelayer._i().putItme(circle);
-
-        GameScene._i().curtouchdone++;
-        if(GameScene._i().curtouchdone == 5)
-        {
-            GameScene._i().nextgame();
-        }
+        //var circle: GameUtil.MyBitmap = new GameUtil.MyBitmap(RES.getRes('redcircle_png'),this.x,this.y);
+        var circle: egret.Shape = this.getArcProgress(this.x,this.y,true, 15);
+        //AdaptGamelayer._i().putItme(circle);
+        GameScene._i().adplayerf.addChild(circle);
 
         console.log('tag====',this.touchtag);
     }
@@ -58,10 +54,48 @@ class Touchrect extends egret.Shape
     public aptouch(tag:number)
     {
         this.touchbool = true;
-        var circle: GameUtil.MyBitmap = new GameUtil.MyBitmap(RES.getRes('redcircle_png'),this.x,this.y);
-        AdaptGamelayer._i().putItme(circle);
+        //var circle: GameUtil.MyBitmap = new GameUtil.MyBitmap(RES.getRes('redcircle_png'),this.x,this.y);
+        var circle: egret.Shape = this.getArcProgress(this.x,this.y,false,15);
+        GameScene._i().adplayerf.addChild(circle);
 
         console.log('tag====',this.touchtag);
+    }
+
+    private getArcProgress(x:number,y:number,touchcount:boolean, dic:number):egret.Shape {
+        var shape:egret.Shape = new egret.Shape();
+        var angle = 0;
+        egret.startTick(function arc(timeStamp:number):boolean {
+            angle += 1 * dic;
+            changeGraphics(angle);
+            if(angle >= 360){
+                egret.stopTick(arc,this);
+
+                if(touchcount){
+                    GameScene._i().curtouchdone++;
+                    if(GameScene._i().curtouchdone == 5)
+                    {
+                        egret.setTimeout(function()
+                        {
+                            GameScene._i().nextgame();
+                        },this,500);
+
+                    }
+                }
+            }
+
+            return true;
+        }, this);
+
+        return shape;
+
+        function changeGraphics(angle) {
+            shape.graphics.clear();
+
+            shape.graphics.lineStyle(5, 0xff0000, 1);
+            shape.graphics.drawArc(x, y, 50, 0, angle * Math.PI / 180, false);
+            shape.graphics.endFill();
+
+        }
     }
 
 

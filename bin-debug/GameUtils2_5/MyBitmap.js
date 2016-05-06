@@ -18,7 +18,7 @@ var GameUtil;
         };
         p.setNewTexture = function (texture) {
             this.texture = texture;
-            this.setanchorOff(0.5, 0.5);
+            //this.setanchorOff(0.5,0.5);
         };
         p.setanchorOff = function (anchorx, anchory) {
             this.anchorOffsetX = this.$getWidth() * anchorx;
